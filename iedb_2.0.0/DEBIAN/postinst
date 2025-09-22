@@ -1,0 +1,24 @@
+#!/bin/bash
+set -e
+
+# Create iedb user if it doesn't exist
+if ! id "iedb" &>/dev/null; then
+    useradd --system --home /var/lib/iedb --shell /bin/false iedb
+fi
+
+# Set permissions
+chown -R iedb:iedb /var/log/iedb
+chown -R iedb:iedb /etc/iedb
+chown -R iedb:iedb /usr/local/lib/iedb
+
+# Install Python dependencies
+pip3 install fastapi uvicorn pydantic pyjwt passlib[bcrypt] python-multipart email-validator cryptography python-jose[cryptography]
+
+# Enable and start service
+systemctl daemon-reload
+systemctl enable iedb
+systemctl start iedb
+
+echo "IEDB installed successfully!"
+echo "Access the web interface at: http://localhost:8080"
+echo "API documentation at: http://localhost:8080/docs"

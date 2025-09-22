@@ -1,0 +1,3 @@
+#!/bin/bash
+cd /usr/local/lib/iedb
+python3 iedb_api.py "$@"
