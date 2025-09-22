@@ -1,0 +1,31 @@
+[project]
+name = "iedb"
+version = "2.0.0"
+description = "IEDB - Intelligent Enterprise Database"
+requires-python = ">=3.9"
+
+dependencies = [
+    "fastapi>=0.104.1",
+    "uvicorn>=0.24.0",
+    "pydantic>=2.5.0",
+    "pyjwt>=2.8.0",
+    "passlib[bcrypt]>=1.7.4",
+    "python-multipart>=0.0.6",
+    "email-validator>=2.1.0",
+    "cryptography>=41.0.7",
+    "python-jose[cryptography]>=3.3.0",
+]
+
+[project.optional-dependencies]
+packaging = [
+    "pyinstaller>=6.0.0",
+]
+
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[dependency-groups]
+packaging = [
+    "pyinstaller>=6.16.0",
+]

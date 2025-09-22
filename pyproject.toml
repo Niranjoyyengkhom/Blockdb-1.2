@@ -2,26 +2,25 @@
 name = "iedb"
 version = "2.0.0"
 description = "IEDB - Intelligent Enterprise Database"
-authors = [
-    {name = "Niranjoy Yengkhom", email = "niranjoyy@gmail.com"},
-]
-maintainers = [
-    {name = "Niranjoy Yengkhom", email = "niranjoyy@gmail.com"},
-]
 readme = "README.md"
-license = {file = "LICENSE"}
 requires-python = ">=3.9"
-keywords = ["database", "blockchain", "encryption", "API", "security"]
+license = {text = "GPL-3.0-or-later"}
+authors = [
+    {name = "Niranjoy Yengkhom", email = "niranjoyy@gmail.com"}
+]
 classifiers = [
     "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)",
     "Programming Language :: Python :: 3",
     "Programming Language :: Python :: 3.9",
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
-    "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
+    "Programming Language :: Python :: 3.12",
     "Topic :: Database",
     "Topic :: Security :: Cryptography",
 ]
+keywords = ["database", "blockchain", "encryption", "jwt", "authentication", "enterprise"]
 
 dependencies = [
     "fastapi>=0.104.1",
@@ -35,48 +34,47 @@ dependencies = [
     "python-jose[cryptography]>=3.3.0",
 ]
 
-[project.scripts]
-iedb-cli = "src.iedb_cli:main"
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.4.0",
+    "black>=23.7.0",
+    "isort>=5.12.0",
+    "mypy>=1.5.1",
+]
+packaging = [
+    "pyinstaller>=6.0.0",
+]
+all = [
+    "iedb[dev,packaging]",
+]
 
 [project.urls]
 "Homepage" = "https://github.com/Niranjoyyengkhom/Blockdb-1.2"
 "Bug Tracker" = "https://github.com/Niranjoyyengkhom/Blockdb-1.2/issues"
 "Documentation" = "https://github.com/Niranjoyyengkhom/Blockdb-1.2/wiki"
 
-[project.optional-dependencies]
-dev = [
-    "pytest>=7.4.0",
-    "pytest-cov>=4.1.0",
-    "black>=23.7.0",
-    "isort>=5.12.0",
-    "mypy>=1.5.1",
-]
-ui = [
-    "streamlit>=1.26.0",
-]
-packaging = [
-    "pyinstaller>=6.0.0",
-]
-
 [build-system]
-requires = ["hatchling>=1.18.0"]
-build-backend = "hatchling.build"
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
 
-[tool.hatch.build.targets.wheel]
-packages = ["src"]
+[tool.setuptools]
+packages = ["iedb"]
+package-dir = {"" = "src"}
+
+[tool.setuptools.package-data]
+iedb = ["py.typed", "**/*.json", "**/*.html", "**/*.css", "**/*.js"]
 
 [tool.black]
-line-length = 88
-target-version = ['py39']
+line-length = 100
+target-version = ["py39", "py310", "py311"]
 
 [tool.isort]
 profile = "black"
-line_length = 88
+line_length = 100
 
 [tool.mypy]
 python_version = "3.9"
 warn_return_any = true
 warn_unused_configs = true
-
-[tool.pytest.ini_options]
-testpaths = ["tests"]
+disallow_untyped_defs = true
+disallow_incomplete_defs = true
