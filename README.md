@@ -2,7 +2,7 @@
 
 **Advanced file-based database system with encryption, AI features, JWT authentication, and blockchain-inspired storage**
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 [![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
 [![API Tests](https://img.shields.io/badge/API%20Tests-100%25%20Pass-brightgreen.svg)](/)
 
@@ -209,11 +209,12 @@ IEDB includes comprehensive testing with **100% API coverage**:
 
 ## 📝 License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the GNU General Public License v3.0 (GPLv3) - see the [LICENSE](LICENSE) file for details.
 
 ## 📞 Support
 
 - **Documentation**: Full API docs at `/docs` endpoint
+- **Email**: niranjoyy@gmail.com
 - **Issues**: [GitHub Issues](https://github.com/Niranjoyyengkhom/Blockdb-1.2/issues)
 - **Discussions**: [GitHub Discussions](https://github.com/Niranjoyyengkhom/Blockdb-1.2/discussions)
 

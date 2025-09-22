@@ -287,6 +287,6 @@ sudo netstat -tulpn | grep 8080
 ## 📄 License
 
 IEDB v2.0.0 - Intelligent Enterprise Database
-Released under MIT License
+Released under GNU General Public License v3.0 (GPLv3)
 
 For more information, visit: https://github.com/iedb/iedb
